@@ -13,7 +13,7 @@ if os.name == 'nt':
     cmd = "cls"
 elif os.name == 'posix':
     cmd = "clear"
-
+    
 def main_menu():
     option = input("[1] Add Login   [2] View Login  [3] Lock Files  [4] Unlock Files: ")
     if option == "1":
