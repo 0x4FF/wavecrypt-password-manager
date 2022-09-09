@@ -1,6 +1,6 @@
 import os, requests, time;from datetime import date; import colorama; from colorama import Fore; from cryptography.fernet import Fernet
 
-directory = "C:\\Users\\crese\\Downloads\\Important\\Coding\\Coding\\python\\PW manager\\creds\\"
+directory = "Directory-To-Save-Passwords"
 today = date.today()
 key = Fernet.generate_key()
 
