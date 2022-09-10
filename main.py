@@ -62,7 +62,7 @@ def view_login():
     for file in os.listdir(directory):
         file_names.append(file)
         count = 0
-        print(f"File #{count+1}:  {file}")
+        print(f"File #{count}:  {file}")
 
     choice = input("Which file?: ")
     if choice in file_names:
