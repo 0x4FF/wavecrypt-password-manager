@@ -91,7 +91,7 @@ def lock_files():
         print(f"{Fore.GREEN}[+]Files locked succesfully{Fore.RESET}")
         time.sleep(3)
         os.system(cmd)
-        main_menu()
+        
 
 def unlock_files():
     fk = Fernet(key)
@@ -104,6 +104,6 @@ def unlock_files():
         print(f"{Fore.GREEN}[+]Files Unlocked succesfully{Fore.RESET}")
         time.sleep(3)
         os.system(cmd)
-        main_menu()
+       
 
 main_menu()
