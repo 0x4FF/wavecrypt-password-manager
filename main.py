@@ -59,9 +59,10 @@ Date: {today}''')
 
 def view_login():
     file_names = []
+    count = 0
     for file in os.listdir(directory):
         file_names.append(file)
-        count = 0
+        count+=1
         print(f"File #{count}:  {file}")
 
     choice = input("Which file?: ")
