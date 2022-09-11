@@ -1,7 +1,7 @@
 import os, requests, time;from datetime import date; import colorama; from colorama import Fore; from cryptography.fernet import Fernet
 
 # Directory to store the password/logins in
-directory = "YOUR-DIR"
+directory = "C:\\Users\\crese\\Downloads\\Important\\Coding\\Coding\\python\\PW manager\\creds\\"
 
 # Variable using datetime module to get current date
 today = date.today()
@@ -11,6 +11,7 @@ key = Fernet.generate_key()
 
 # Common variable
 fernet_key = Fernet(key)
+
 
 # Check which os is being used to assign the appropriate terminal command to the variable
 if os.name == 'nt':
@@ -82,18 +83,16 @@ def add_login_function():
 # Function to view logins in the directory
 def view_login():
 
-    # List to hold file names after iterating over the directory set to "directory" variable
-    file_names = []
+    # List comprehension to hold file names after iterating over the directory set to "directory" variable
+    file_names = [file for file in os.listdir(directory)]
 
     # Variable as counter to be increased by one for every iteration to serve as a place holder to display
     # file count of each iteration
     count_cursor = 0
     
-    # For loop to iterate over directory and append each found file into the "file_names" list
-    for file in os.listdir(directory):
-        file_names.append(file)
+    # For loop to iterate over elements in "file_names" list and add one to "count+cursor" and print output
+    for file in file_names:
         count_cursor+=1
-        
         print(f"File #{count_cursor}:  {file}")
 
     # Variable to hold user input for chosen file name to open
@@ -168,7 +167,6 @@ def unlock_files():
 
 # Function to load the generated key into the key file
 def load_key():
-    
     with open('config/key.key', 'wb+') as key_file:
         key_file.write(key)
 
