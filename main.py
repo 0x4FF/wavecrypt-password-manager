@@ -1,7 +1,7 @@
 import os, requests, time;from datetime import date; import colorama; from colorama import Fore; from cryptography.fernet import Fernet
 
 # Directory to store the password/logins in
-directory = "C:\\Users\\crese\\Downloads\\Important\\Coding\\Coding\\python\\PW manager\\creds\\"
+directory = "your dir"
 
 # Variable using datetime module to get current date
 today = date.today()
