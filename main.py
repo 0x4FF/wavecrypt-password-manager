@@ -70,13 +70,7 @@ def add_login_function():
     file = open(f'creds/{site}.txt', 'x')
 
     # Format used for writing into the file created
-    file.write(f'''
-Site: {site}
-Username: {username}
-Password: {password}
-URL: {url}
-Email: {email}
-Date: {today}''')
+    file.write(f'''Site: {site}\nUsername: {username}\nPassword: {password}\nURL: {url}\nEmail: {email}\nDate: {today}''')
     file.close()
 
     # After functionality is done to notify you that the login was added
