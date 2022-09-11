@@ -14,7 +14,6 @@ fernet_key = Fernet(key)
 
 # Check which os is being used to assign the appropriate terminal command to the variable
 if os.name == 'nt':
-
     # Variable holding appropriate terminal command
     clear_command = "cls"
 elif os.name == 'posix':
