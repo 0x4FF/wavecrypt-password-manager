@@ -12,7 +12,6 @@ key = Fernet.generate_key()
 # Common variable
 fernet_key = Fernet(key)
 
-
 # Check which os is being used to assign the appropriate terminal command to the variable
 if os.name == 'nt':
 
