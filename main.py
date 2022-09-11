@@ -5,8 +5,6 @@ directory = "where to store pw"
 today = date.today()
 key = Fernet.generate_key()
 
-
-
 if os.name == 'nt':
     cmd = "cls"
 elif os.name == 'posix':
