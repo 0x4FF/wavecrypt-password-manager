@@ -158,7 +158,7 @@ def unlock_files():
 
         # Except statement for error checking
         except:
-            print("Couldnt unlock file, unknown error")
+            print("Couldnt unlock file, Fernet key expired")
         time.sleep(3)
         os.system(clear_command)
         main_menu()
