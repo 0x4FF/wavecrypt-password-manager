@@ -18,7 +18,7 @@ if os.name == 'nt': clear_command = "cls" # Variable holding appropriate termina
 elif os.name == 'posix': clear_command = "clear"
 
 # Menu function
-def main_menu():
+def main():
     option = input("[1] Add Login   [2] View Login  [3] Lock Files  [4] Unlock Files   [5] Load Key: ")
     if option == "1":
         os.system(clear_command)
@@ -71,13 +71,17 @@ def add_login_function():
     print(f"[+] Login Added for {site}")
     time.sleep(3)
     os.system(clear_command)
-    main_menu()
+    main()
 
 # Function to view logins in the directory
 def view_login():
 
     # List comprehension to hold file names after iterating over the directory set to "directory" variable
     file_names = [file for file in os.listdir(directory)]
+
+    # Variable as counter to be increased by one for every iteration to serve as a place holder to display
+    # file count of each iteration
+    
     
     # For loop to iterate over elements in "file_names" list and add one to "count+cursor" and print output
     for count, file in enumerate(file_names, start=1):
@@ -95,18 +99,18 @@ def view_login():
         with open(f'creds/{file}', 'r+') as file:
             print(file.read())
 
-            # Variable to decide to go back to "main_menu()"
+            # Variable to decide to go back to "main()"
             choice_2 = input("Home? (y/n): ")
             if choice_2 == "y":
                 os.system(clear_command)
-                main_menu()
+                main()
 
     # Else statement for invalid input
     else:
         print(f"{Fore.RED}File doesnt exist{Fore.RESET}")
         time.sleep(3)
         os.system(clear_command)
-        main_menu()
+        main()
 
 # Function to lock all files found in directory
 def lock_files():    
@@ -127,7 +131,7 @@ def lock_files():
         print(f"{Fore.GREEN}[+]Files locked succesfully{Fore.RESET}")
         time.sleep(3)
         os.system(clear_command)
-        main_menu()
+        main()
        
 
 def unlock_files():
@@ -151,7 +155,7 @@ def unlock_files():
             print("Couldnt unlock file, Fernet key expired")
         time.sleep(3)
         os.system(clear_command)
-        main_menu()
+        main()
 
 # Function to load the generated key into the key file
 def load_key():
@@ -160,5 +164,5 @@ def load_key():
 
     print("done")
     
-        
-main_menu()
+if __name__ == "__main__":
+    main()
