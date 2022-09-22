@@ -78,10 +78,6 @@ def view_login():
 
     # List comprehension to hold file names after iterating over the directory set to "directory" variable
     file_names = [file for file in os.listdir(directory)]
-
-    # Variable as counter to be increased by one for every iteration to serve as a place holder to display
-    # file count of each iteration
-    
     
     # For loop to iterate over elements in "file_names" list and add one to "count+cursor" and print output
     for count, file in enumerate(file_names, start=1):
