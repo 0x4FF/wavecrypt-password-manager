@@ -1,7 +1,7 @@
 import os, requests, time;from datetime import date; import colorama; from colorama import Fore; from cryptography.fernet import Fernet
 
 # Directory to store the password/logins in
-directory = "your dir"
+directory = "dir"
 
 # Variable using datetime module to get current date
 today = date.today()
@@ -13,11 +13,9 @@ key = Fernet.generate_key()
 fernet_key = Fernet(key)
 
 # Check which os is being used to assign the appropriate terminal command to the variable
-if os.name == 'nt':
-    # Variable holding appropriate terminal command
-    clear_command = "cls"
-elif os.name == 'posix':
-    clear_command = "clear"
+
+if os.name == 'nt': clear_command = "cls" # Variable holding appropriate terminal command
+elif os.name == 'posix': clear_command = "clear"
 
 # Menu function
 def main_menu():
@@ -66,11 +64,8 @@ def add_login_function():
         print(f"{Fore.RED}[-] URL not found{Fore.RESET}")
 
     # Creating file based on the user input for "site" variable as the file name
-    file = open(f'creds/{site}.txt', 'x')
-
-    # Format used for writing into the file created
-    file.write(f'''Site: {site}\nUsername: {username}\nPassword: {password}\nURL: {url}\nEmail: {email}\nDate: {today}''')
-    file.close()
+    with open(f'creds/{site}.txt', 'x') as file:
+        file.write(f'''Site: {site}\nUsername: {username}\nPassword: {password}\nURL: {url}\nEmail: {email}\nDate: {today}''')
 
     # After functionality is done to notify you that the login was added
     print(f"[+] Login Added for {site}")
@@ -86,12 +81,11 @@ def view_login():
 
     # Variable as counter to be increased by one for every iteration to serve as a place holder to display
     # file count of each iteration
-    count_cursor = 0
+    
     
     # For loop to iterate over elements in "file_names" list and add one to "count+cursor" and print output
-    for file in file_names:
-        count_cursor+=1
-        print(f"File #{count_cursor}:  {file}")
+    for count, file in enumerate(file_names, start=1):
+        print(f"File #{count}:  {file}")
 
     # Variable to hold user input for chosen file name to open
     choice = input("Which file?: ")
